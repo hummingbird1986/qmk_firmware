@@ -11,7 +11,7 @@
 #define MANUFACTURER    K.T.E.C.
 #define PRODUCT         ErgoDone
 #define DESCRIPTION     QMK keyboard firmware for ErgoDone
-
+#define EE_HANDS
 /* key matrix size */
 #define MATRIX_ROWS 6
 #define MATRIX_COLS 14

@@ -93,3 +93,5 @@ RGBLIGHT_ENABLE         = no
 MIDI_ENABLE             = no
 
 LAYOUTS = ergodox
+BOOTLOADER = bootloadHID
+

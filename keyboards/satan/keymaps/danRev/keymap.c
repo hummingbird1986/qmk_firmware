@@ -1,16 +1,23 @@
-
 #include "satan.h"
 
-#define KC_____ KC_TRNS
+#define _______ KC_TRNS
 
-#define _BL 0
+enum customer_keycodes {
+  _BL = 0,
+  _NORM,
+  _VIML,
+  _NL,
+  _HHKB,
+  _MCO,
+};
+/*#define _BL 0
 #define _VIML 1
 #define _NL 2
 #define _HHKB 3
 #define _MCO 4
 //#define _MD 4
 //static uint16_t key_timer;
-
+*/
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_BL]=LAYOUT_all(
         KC_GRV,         KC_1,   KC_2,  KC_3,   KC_4,   KC_5,   KC_6,   KC_7,   KC_8,   KC_9,   KC_0,   KC_MINS,KC_EQL ,KC_BSLS,  KC_NO,
@@ -19,12 +26,19 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_LSFT,KC_NO , KC_Z,   KC_X,   KC_C,   KC_V,   KC_B,   KC_N,   KC_M,   KC_COMM,KC_DOT, KC_SLSH,KC_RSFT,KC_DEL,  
         LT(_MCO,KC_CAPS),KC_LALT,KC_LGUI,                       KC_SPC,                         MO(_HHKB/*|_MD*/),KC_RGUI,KC_RALT,KC_RCTL
     ),
+	[_NORM]=LAYOUT_all(
+        KC_ESC,_______,_______,_______,_______,_______,_______,_______,_______,_______,_______,_______,_______,KC_BSPC,_______,
+		_______,_______,_______,_______,_______,_______,_______,_______,_______,_______,_______,_______,_______,KC_BSLS,
+        KC_CAPS,_______,_______,_______,_______,_______,_______,_______,_______,_______,_______,_______,_______,_______,
+        _______,_______,_______,_______,_______,_______,_______,_______,_______,_______,_______,_______,_______,_______,
+        KC_LCTL,KC_LGUI,KC_LALT,                        _______,                        _______,_______,_______,_______
+        ),
 
    [_VIML]=LAYOUT_all(
         _______,  KC_F1,  KC_F2,  KC_F3,  KC_F4,  KC_F5,_______,_______,_______,_______,_______,_______,_______,_______,_______,
-		_______,  KC_F6,  KC_F7,  KC_F8,  KC_F9, KC_F10,KC_BSPC,_______,_______, KC_DEL,_______,_______,_______,_______,
-		_______, KC_F11, KC_F12, KC_F13, KC_F14, KC_F15,KC_LEFT,KC_DOWN,  KC_UP,KC_RIGHT,_______,_______,_______,_______,
-        _______,_______,_______,_______,_______,_______,_______,KC_HOME,KC_PGDN,KC_PGUP,_______,_______,_______,_______,
+		_______,  KC_F6,  KC_F7,  KC_F8,  KC_F9, KC_F10,_______,_______,_______,_______,_______,_______,_______,TG(_NORM),
+		_______, KC_F11, KC_F12, KC_F13, KC_F14, KC_F15,_______,_______,_______,_______,_______,_______,_______,_______,
+        _______,_______,_______,_______,_______,_______,_______,_______,_______,_______,_______,_______,_______,_______,
         _______,_______,_______,                        _______,                        _______,_______,_______,_______
     ),
 
